@@ -1,4 +1,4 @@
-package demo;
+package Astar;
 
 import java.util.Map;
 import java.util.PriorityQueue;

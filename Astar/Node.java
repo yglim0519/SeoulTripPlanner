@@ -1,7 +1,4 @@
-package demo;
-
-import java.io.*;
-import java.util.*;
+package Astar;
 
 public class Node implements Comparable<Node> {
     private final String stationName;
