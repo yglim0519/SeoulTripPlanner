@@ -20,12 +20,12 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openDatesPage();
+                openDatesActivity();
             }
         });
     }
 
-    public void openDatesPage() {
+    public void openDatesActivity() {
 
         Intent intent = new Intent(this, DatesActivity.class);
         startActivity(intent);
