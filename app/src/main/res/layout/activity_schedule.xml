@@ -6,4 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".ScheduleActivity">
 
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:id="@+id/linear_Layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

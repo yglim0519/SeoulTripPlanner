@@ -20,6 +20,7 @@ public class DatesActivity extends AppCompatActivity {
     private TextView startDate, endDate;
     private DatePickerDialog datePickerDialog;
     private Button nextButton;
+    int sDay, sMonth, eDay, eMonth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,10 @@ public class DatesActivity extends AppCompatActivity {
                     }
                 }, year, month, day);
                 datePickerDialog.show();
+
+                //export the chosen day and month values
+                sDay = day;
+                sMonth = month;
             }
         });
 
@@ -63,22 +68,25 @@ public class DatesActivity extends AppCompatActivity {
                     }
                 }, year, month, day);
                 datePickerDialog.show();
+
+                //export the chosen day and month values
+                eDay = day;
+                eMonth = month;
             }
         });
 
         //next button
         nextButton = findViewById(R.id.nextButton);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openSchedulesActivity();
-            }
+        nextButton.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getApplicationContext(), ScheduleActivity.class);
+            intent.putExtra("startDate", startDate.getText().toString());
+            intent.putExtra("endDate", endDate.getText().toString());
+            intent.putExtra("sDay", sDay);
+            intent.putExtra("sMonth", sMonth);
+            intent.putExtra("eDay", eDay);
+            intent.putExtra("eMonth", eMonth);
+            startActivity(intent);
         });
-    }
-
-    public void openSchedulesActivity() {
-
-        Intent intent = new Intent(this, ScheduleActivity.class);
-        startActivity(intent);
     }
 }
