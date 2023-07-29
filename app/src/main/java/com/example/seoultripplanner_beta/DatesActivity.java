@@ -20,7 +20,6 @@ public class DatesActivity extends AppCompatActivity {
     private TextView startDate, endDate;
     private DatePickerDialog datePickerDialog;
     private Button nextButton;
-    int sDay, sMonth, eDay, eMonth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +39,10 @@ public class DatesActivity extends AppCompatActivity {
                 datePickerDialog = new DatePickerDialog(DatesActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int day) {
-                        startDate.setText(day + "/" + (month + 1) + "/" + year);
+                        startDate.setText((month + 1) + "/" + day + "." + year);
                     }
                 }, year, month, day);
                 datePickerDialog.show();
-
-                //export the chosen day and month values
-                sDay = day;
-                sMonth = month;
             }
         });
 
@@ -64,14 +59,10 @@ public class DatesActivity extends AppCompatActivity {
                 datePickerDialog = new DatePickerDialog(DatesActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int day) {
-                        endDate.setText(day + "/" + (month + 1) + "/" + year);
+                        endDate.setText((month + 1) + "/" + day + "." + year);
                     }
                 }, year, month, day);
                 datePickerDialog.show();
-
-                //export the chosen day and month values
-                eDay = day;
-                eMonth = month;
             }
         });
 
@@ -82,10 +73,6 @@ public class DatesActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), ScheduleActivity.class);
             intent.putExtra("startDate", startDate.getText().toString());
             intent.putExtra("endDate", endDate.getText().toString());
-            intent.putExtra("sDay", sDay);
-            intent.putExtra("sMonth", sMonth);
-            intent.putExtra("eDay", eDay);
-            intent.putExtra("eMonth", eMonth);
             startActivity(intent);
         });
     }
